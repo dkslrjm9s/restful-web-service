@@ -1,0 +1,24 @@
+server:
+  port: 8088 # 포트 지정, 지정안하면 8080
+
+logging:
+  level:
+    org.springframework: DEBUG # 상세로그 콘솔창에 찍음
+
+spring:
+  messages:
+    basename: messages # 우리가 사용할 다국어 파일의 이름 (messages.properties)
+  mvc: # swagger 때문에 추가함. spring-boot 2.6.x버전 부터 뭐 기본 경로가 바꼈다고함.
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  security:
+    user:
+      name: username
+      password: passw0rd
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
